@@ -22,7 +22,8 @@ export default function HomeLayout({
                 </div>
             </div>
 
-            <body>{children}</body>
+            {children}
+
         </>
     )
 }
