@@ -2,6 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table"
 import { Product } from "@/lib/models/product";
+import { DataTableRowActions } from "./data-table-row-actions";
 
 export const columns: ColumnDef<Product>[] = [
     {
@@ -29,7 +30,7 @@ export const columns: ColumnDef<Product>[] = [
         header: "Updated At",
     },
     {
-        accessorKey: "actions",
-        header: "",
-    }
+        id: "actions",
+        header: ""
+    },
 ]

@@ -127,7 +127,7 @@ export default function CreateProductForm({ onProductCreated }) {
     async function submitForm(values) {
         setIsSubmitting(true);
         try {
-            const response = await fetch('https://localhost:7068/api/Products', {
+            const response = await fetch(`${process.env.baseUrl}Products`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

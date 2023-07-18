@@ -11,12 +11,14 @@ import AdminCreateProduct from "./components/create-product";
 import * as React from "react"
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { patchFetch } from "next/dist/server/lib/patch-fetch";
+import { toast } from "@/components/ui/use-toast";
 
 
-const fetcher = (path) => fetch(`https://localhost:7068/api${path}`).then(r => r.json())
+const fetcher = (path) => fetch(`${process.env.baseUrl}${path}`).then(r => r.json())
 
 async function fetchData(pageIndex, pageSize) {
-    const path = `/Products?Page=${pageIndex}&Size=${pageSize}`;
+    const path = `Products?Page=${pageIndex}&Size=${pageSize}`;
     const response = await fetcher(path);
     return response;
 }
@@ -78,7 +80,7 @@ export default function ProductPage() {
                     setPageSize={setPageSize}
                     setPageIndex={setPageIndex}
                 >
-                    <DataTable columns={columns} data={products} />
+                    <DataTable columns={columns} data={products} pageIndex={pageIndex} pageSize={pageSize} />
                     <div className="w-full mt-4">
                         <DataTablePagination />
                     </div>

@@ -16,16 +16,21 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { DataTableRowActions } from "./data-table-row-actions"
 
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    pageIndex: number
+    pageSize: number
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
+    pageIndex,
+    pageSize
 }: DataTableProps<TData, TValue>) {
     const table = useReactTable({
         data,
@@ -65,6 +70,7 @@ export function DataTable<TData, TValue>({
                                                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                             </TableCell>
                                         ))}
+                                        <DataTableRowActions cell={row.original} pageIndex={pageIndex} pageSize={pageSize} />
                                     </TableRow>
                                 ))
                             ) : (
