@@ -13,12 +13,13 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import AdminUploadProductImage from './upload-product-image';
 
 
 export default function AdminCreateProduct({ handleProductCreated }) {
     return (
         <div>
-            <Card className="w-[250px]">
+            <Card className="w-[300px]">
                 <CardHeader>
                     <CardTitle>Create Product</CardTitle>
                 </CardHeader>
@@ -26,6 +27,9 @@ export default function AdminCreateProduct({ handleProductCreated }) {
                     <CreateProductForm onProductCreated={handleProductCreated} />
                 </CardContent>
             </Card>
+            <div className='mt-4'>
+                <AdminUploadProductImage />
+            </div>
         </div>
     )
 }

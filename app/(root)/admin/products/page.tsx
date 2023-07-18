@@ -13,6 +13,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { patchFetch } from "next/dist/server/lib/patch-fetch";
 import { toast } from "@/components/ui/use-toast";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import AdminUploadProductImage from "./components/upload-product-image";
 
 
 const fetcher = (path) => fetch(`${process.env.baseUrl}${path}`).then(r => r.json())
@@ -68,8 +71,8 @@ export default function ProductPage() {
     const { totalCount, products } = data;
 
     return (
-        <div className="flex flex-col p-8 md:flex-row">
-            <div className="w-full md:w-1/3 pr-4">
+        <div className="flex flex-col md:flex-row">
+            <div className="w-full md:w-1/3 grid">
                 <AdminCreateProduct handleProductCreated={handleProductCreated} />
             </div>
             <div className="w-full pl-4">
