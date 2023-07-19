@@ -27,9 +27,6 @@ export default function AdminCreateProduct({ handleProductCreated }) {
                     <CreateProductForm onProductCreated={handleProductCreated} />
                 </CardContent>
             </Card>
-            <div className='mt-4'>
-                <AdminUploadProductImage />
-            </div>
         </div>
     )
 }
