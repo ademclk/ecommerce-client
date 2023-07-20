@@ -34,7 +34,7 @@ export default function AdminUploadProductImage({ cellId }) {
                 setShowDialog(false);
                 setUploadProgress(50);
 
-                const response = await fetch(`${process.env.baseUrl}Products/Upload/${cellId}`, {
+                const response = await fetch(`${process.env.baseUrl}Products/Upload?id=${cellId}`, {
                     method: 'POST',
                     body: formData,
                     headers: {
