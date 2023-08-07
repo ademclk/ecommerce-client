@@ -49,6 +49,17 @@ export function MainNav() {
                 >
                     Admin
                 </Link>
+                <Link
+                    href="/signup"
+                    className={cn(
+                        "transition-colors hover:text-foreground/80",
+                        pathname?.startsWith("/examples")
+                            ? "text-foreground"
+                            : "text-foreground/60"
+                    )}
+                >
+                    Signup
+                </Link>
             </nav>
         </div>
     )

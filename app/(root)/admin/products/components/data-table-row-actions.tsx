@@ -49,7 +49,7 @@ export function DataTableRowActions<TData>({
 
     async function handleDelete() {
         try {
-            const response = await fetch(`${process.env.baseUrl}Products?id=${cell.id}`, {
+            const response = await fetch(`${process.env.baseUrl}Products/${cell.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export function DataTableRowActions<TData>({
 
     async function getProductImages(id: string) {
         try {
-            const response = await fetch(`${process.env.baseUrl}Products/GetImages?id=${cell.id}`, {
+            const response = await fetch(`${process.env.baseUrl}Products/GetImages/${cell.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
